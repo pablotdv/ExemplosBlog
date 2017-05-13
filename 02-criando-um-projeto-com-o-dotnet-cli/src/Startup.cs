@@ -11,17 +11,20 @@ namespace ExemploBlog
         {
             Configuration = configuration;
         }
-        
+
         private IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
         {
-            
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-
+            app.Run(async context =>
+                    {
+                        await context.Response.WriteAsync("Hello, World!");
+                    });
         }
     }
 }
